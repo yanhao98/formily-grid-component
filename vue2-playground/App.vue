@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api';
-import { VComponent } from './src';
+import { FormilyGridComponent as VComponent } from '../src';
 
 export default defineComponent({
   name: 'App',
@@ -15,3 +15,4 @@ export default defineComponent({
   },
 });
 </script>
+../src

@@ -1,18 +1,28 @@
 <template>
-  <div class="v-component">
+  <div>
     <div>{{ version }}</div>
     <button type="button" @click="count++">count is: {{ count }}</button>
+    <input type="text" v-model="count" />
+    <div>{{ msg }}</div>
   </div>
 </template>
 
 <script lang="ts">
-import { ref, defineComponent, version } from 'vue-demi';
+import { defineComponent, version } from 'vue-demi';
 
 export default defineComponent({
-  name: 'VComponent',
-  setup() {
-    const count = ref(0);
-    return { count, version };
+  name: 'FormilyGridComponent',
+  props: {
+    msg: {
+      type: String,
+      default: 'Hello World',
+    },
+  },
+  data() {
+    return {
+      count: 0,
+      version,
+    };
   },
 });
 </script>

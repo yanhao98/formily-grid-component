@@ -1,23 +1,16 @@
 {
   "compilerOptions": {
-    "types": [
-      /* "vite/client" */
-    ],
-    "target": "esnext",
-    "module": "esnext",
-    "moduleResolution": "node",
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Node",
     "strict": true,
     "jsx": "preserve",
     "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "lib": ["esnext", "dom"]
+    "lib": ["ESNext", "DOM"],
+    "baseUrl": "."
   },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.d.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
-    "main.ts"
-  ]
+  "include": ["**/**/*.ts", "**/**/*.d.ts", "**/**/*.tsx", "**/**/*.vue"],
+  "exclude": ["node_modules", "dist"]
 }

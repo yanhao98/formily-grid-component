@@ -1,1 +1,2 @@
-export { default as VComponent } from './v-component.vue';
+import VComponent from './v-component.vue';
+export const FormilyGridComponent = VComponent;
