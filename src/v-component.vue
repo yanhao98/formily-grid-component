@@ -1,14 +1,22 @@
 <template>
-  <div>
-    <div>{{ version }}</div>
-    <button type="button" @click="count++">count is: {{ count }}</button>
-    <input type="text" v-model="count" />
-    <div>{{ msg }}</div>
+  <div
+    class="formily-grid-component"
+    :style="{
+      display: 'grid',
+      gridTemplateColumns: grid.templateColumns,
+      gap: grid.gap,
+    }"
+    ref="rootRef"
+  >
+    <slot />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, version } from 'vue-demi';
+import { Grid } from '@formily/grid';
+
+let dispose = () => {};
 
 export default defineComponent({
   name: 'FormilyGridComponent',
@@ -22,7 +30,19 @@ export default defineComponent({
     return {
       count: 0,
       version,
+      grid: new Grid(),
     };
+  },
+  created() {
+    // this.grid.minWidth = 200;
+  },
+  mounted() {
+    setTimeout(() => {
+      dispose = this.grid.connect(this.$refs.rootRef as HTMLElement);
+    });
+  },
+  destroyed() {
+    dispose();
   },
 });
 </script>

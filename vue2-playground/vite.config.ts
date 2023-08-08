@@ -44,7 +44,7 @@ export default defineConfig({
       // fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {
-      external: ['vue-demi', 'vue'],
+      external: ['vue-demi', 'vue', '@formily/grid', '@formily/reactive-vue'],
       output: {
         globals: {
           vue: 'Vue',

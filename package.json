@@ -1,6 +1,7 @@
 {
   "name": "formily-grid-component",
-  "version": "0.0.30",
+  "packageManager": "pnpm@8.6.12",
+  "version": "0.0.31",
   "description": "",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -11,6 +12,7 @@
   "scripts": {
     "build": "npm run clean && run-s build:*",
     "build:2": "vue-demi-switch 2 vue2 && pnpm --filter vue2-playground build",
+    "build:2:watch": "vue-demi-switch 2 vue2 && pnpm --filter vue2-playground build --watch",
     "clean": "rimraf dist",
     "dev:2": "vue-demi-switch 2 vue2 && pnpm --filter vue2-playground dev",
     "release:ci": "esno scripts/release.ts"
@@ -20,6 +22,8 @@
     "url": "https://github.com/yanhao98/formily-grid-component"
   },
   "dependencies": {
+    "@formily/grid": "^2.2.29",
+    "@formily/reactive-vue": "^2.2.29",
     "vue-demi": "^0.14.5"
   },
   "devDependencies": {
