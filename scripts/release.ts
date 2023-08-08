@@ -12,6 +12,6 @@ fs.cpSync(
 
 let command = 'npm publish --access public';
 
-command += ' --tag vue2';
+command += ' --tag latest';
 
 execSync(command, { stdio: 'inherit' });
