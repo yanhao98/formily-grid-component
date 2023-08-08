@@ -13,28 +13,29 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, version } from 'vue-demi';
 import { Grid } from '@formily/grid';
+import { defineComponent } from 'vue-demi';
 
 let dispose = () => {};
 
 export default defineComponent({
   name: 'FormilyGridComponent',
   props: {
-    msg: {
-      type: String,
-      default: 'Hello World',
+    columns: {
+      type: Number,
+      required: false,
     },
   },
   data() {
     return {
-      count: 0,
-      version,
       grid: new Grid(),
     };
   },
   created() {
-    // this.grid.minWidth = 200;
+    if (this.columns) {
+      this.grid.maxColumns = this.columns;
+      this.grid.minColumns = this.columns;
+    }
   },
   mounted() {
     setTimeout(() => {

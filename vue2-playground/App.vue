@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <FormilyGridComponent>
+    <button @click="show = !show">{{ { show } }}</button>
+
+    <FormilyGridComponent :columns="2" v-if="show">
       <div>1</div>
       <div>2</div>
       <div>3</div>
@@ -23,6 +25,11 @@ export default defineComponent({
   name: 'App',
   components: {
     FormilyGridComponent,
+  },
+  data() {
+    return {
+      show: true,
+    };
   },
   methods: {
     fn() {
