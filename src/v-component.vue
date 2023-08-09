@@ -35,6 +35,7 @@ export default defineComponent({
     if (this.columns) {
       this.grid.maxColumns = this.columns;
       this.grid.minColumns = this.columns;
+      this.grid.options.strictAutoFit = true;
     }
   },
   mounted() {
