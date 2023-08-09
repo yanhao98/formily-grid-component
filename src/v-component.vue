@@ -25,18 +25,32 @@ export default defineComponent({
       type: Number,
       required: false,
     },
+    columnGap: {
+      type: Number,
+      required: false,
+    },
+    rowGap: {
+      type: Number,
+      required: false,
+    },
   },
   data() {
     return {
-      grid: new Grid(),
+      grid: new Grid({
+        rowGap: this.rowGap,
+        columnGap: this.columnGap,
+        maxColumns: this.columns,
+        minColumns: this.columns,
+        strictAutoFit: !!this.columns,
+      }),
     };
   },
   created() {
-    if (this.columns) {
+    /* if (this.columns) {
       this.grid.maxColumns = this.columns;
       this.grid.minColumns = this.columns;
       this.grid.options.strictAutoFit = true;
-    }
+    } */
   },
   mounted() {
     setTimeout(() => {
