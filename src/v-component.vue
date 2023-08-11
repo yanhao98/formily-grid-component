@@ -3,7 +3,7 @@
     class="formily-grid-component"
     :style="{
       display: 'grid',
-      gridTemplateColumns: grid.templateColumns,
+      gridTemplateColumns: cmptTemplateColumns(),
       gap: grid.gap,
     }"
     ref="rootRef"
@@ -34,6 +34,17 @@ export default defineComponent({
       required: false,
     },
   },
+  methods: {
+    cmptTemplateColumns() {
+      if (!this.grid.templateColumns) {
+        return this.grid.maxWidth === Infinity
+          ? `repeat(${this.grid.columns},minmax(0,1fr))`
+          : `repeat(${this.grid.columns},minmax(${this.grid.minWidth}px,${this.grid.maxWidth}px))`;
+      }
+
+      return this.grid.templateColumns;
+    },
+  },
   data() {
     return {
       grid: new Grid({
@@ -45,13 +56,7 @@ export default defineComponent({
       }),
     };
   },
-  created() {
-    /* if (this.columns) {
-      this.grid.maxColumns = this.columns;
-      this.grid.minColumns = this.columns;
-      this.grid.options.strictAutoFit = true;
-    } */
-  },
+  // created() {},
   mounted() {
     setTimeout(() => {
       dispose = this.grid.connect(this.$refs.rootRef as HTMLElement);
