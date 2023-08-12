@@ -1,13 +1,14 @@
 {
   "name": "formily-grid-component",
   "packageManager": "pnpm@8.6.12",
-  "version": "1.0.0-beta.0",
+  "version": "1.0.0-beta.1",
   "description": "",
   "main": "./dist/cur/index.js",
   "module": "./dist/cur/index.mjs",
   "types": "./dist/cur/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "scripts"
   ],
   "scripts": {
     "postinstall": "node ./scripts/postinstall.js",
