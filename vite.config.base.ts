@@ -26,6 +26,7 @@ export const dtsOptions: DtsOptions = {
       content: content
         .replaceAll('vue2.7', 'vue')
         .replaceAll('vue2', 'vue')
+        .replaceAll('vue3', 'vue')
         .replaceAll('../node_modules/', ''),
     };
   },
