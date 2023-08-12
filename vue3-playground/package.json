@@ -7,16 +7,9 @@
     "build": "vite build"
   },
   "devDependencies": {
-    "@types/node": "^20.4.10",
-    "@vitejs/plugin-vue": "^4.2.3",
-    "vite": "^4.4.9",
-    "vite-plugin-dts": "^3.5.1",
-    "vue-tsc": "^1.8.8"
+    "@vitejs/plugin-vue": "^4.2.3"
   },
   "dependencies": {
-    "@formily/grid": "^2.2.29",
-    "@formily/reactive-vue": "^2.2.29",
-    "vue": "^3.3.4",
-    "vue-demi": "^0.14.5"
+    "vue": "^3.3.4"
   }
 }

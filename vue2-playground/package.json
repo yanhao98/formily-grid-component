@@ -7,16 +7,11 @@
     "build": "vite build"
   },
   "devDependencies": {
-    "vite": "^4.4.8",
-    "vite-plugin-dts": "^3.5.1",
     "vite-plugin-vue2": "^2.0.3",
-    "vue-template-compiler": "~2.6.14",
-    "vue-tsc": "^1.8.8"
+    "vue-template-compiler": "~2.6.14"
   },
   "dependencies": {
     "vue": "~2.6.14",
-    "@vue/composition-api": "^1.7.1",
-    "vue-demi": "^0.14.5",
-    "@formily/reactive-vue": "^2.2.29"
+    "@vue/composition-api": "^1.7.1"
   }
 }

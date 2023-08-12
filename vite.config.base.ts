@@ -12,9 +12,7 @@ export const dtsOptions: DtsOptions = {
   entryRoot: srcPath,
   compilerOptions: {
     baseUrl: path.resolve(srcPath, '../'),
-    paths: {
-      '@vue/composition-api': ['node_modules/@vue/composition-api'],
-    },
+    paths: {},
   },
   // insertTypesEntry: true,
   // rollupTypes: true,
