@@ -1,20 +1,24 @@
 {
   "name": "formily-grid-component",
   "packageManager": "pnpm@8.6.12",
-  "version": "0.0.36",
+  "version": "1.0.0-beta.0",
   "description": "",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/cur/index.js",
+  "module": "./dist/cur/index.mjs",
+  "types": "./dist/cur/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
+    "postinstall": "node ./scripts/postinstall.js",
     "build": "npm run clean && run-s build:*",
     "build:2": "vue-demi-switch 2 vue2 && pnpm --filter vue2-playground build",
-    "build:2:watch": "vue-demi-switch 2 vue2 && pnpm --filter vue2-playground build --watch",
-    "clean": "rimraf dist",
+    "build:2.7": "vue-demi-switch 2.7 vue2.7 && pnpm --filter vue2.7-playground build",
+    "build:3": "vue-demi-switch 3 vue3 && pnpm --filter vue3-playground build",
+    "clean": "rimraf dist && rimraf vue2-playground/dist && rimraf vue2.7-playground/dist && rimraf vue3-playground/dist",
     "dev:2": "vue-demi-switch 2 vue2 && pnpm --filter vue2-playground dev",
+    "dev:2.7": "vue-demi-switch 2.7 vue2.7 && pnpm --filter vue2.7-playground dev",
+    "dev:3": "vue-demi-switch 3 vue3 && pnpm --filter vue3-playground dev",
     "release:ci": "esno scripts/release.ts"
   },
   "repository": {
@@ -24,15 +28,19 @@
   "dependencies": {
     "@formily/grid": "^2.2.29",
     "@formily/reactive-vue": "^2.2.29",
+    "fs-extra": "^11.1.1",
     "vue-demi": "^0.14.5"
   },
   "devDependencies": {
-    "@types/node": "^20.4.8",
+    "@types/node": "^20.4.10",
     "@vue/composition-api": "^1.7.1",
     "esno": "^0.17.0",
     "npm-run-all": "^4.1.5",
     "rimraf": "^5.0.1",
     "vite": "^4.4.9",
-    "vue2": "npm:vue@~2.6.14"
+    "vite-plugin-dts": "^3.5.2",
+    "vue2": "npm:vue@~2.6.14",
+    "vue2.7": "npm:vue@~2.7.14",
+    "vue3": "npm:vue@~3.3.4"
   }
 }

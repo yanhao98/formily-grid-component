@@ -1,17 +1,24 @@
 import fs from 'fs';
 import { execSync } from 'node:child_process';
 import path from 'node:path';
+import { version } from '../package.json';
 
 execSync('npm run build', { stdio: 'inherit' });
 
-fs.cpSync(
-  path.resolve(__dirname, '../vue2-playground/dist'),
-  path.resolve(__dirname, '../dist'),
-  { recursive: true }
-);
+['2', '2.7', '3'].forEach((version) => {
+  fs.cpSync(
+    path.resolve(__dirname, '..', `vue${version}-playground/dist`),
+    path.resolve(__dirname, '..', `dist/v${version}`),
+    { recursive: true }
+  );
+});
 
 let command = 'npm publish --access public';
 
-command += ' --tag latest';
+if (version.includes('beta')) {
+  command += ' --tag beta';
+}
+
+// command += ' --dry-run';
 
 execSync(command, { stdio: 'inherit' });
