@@ -36,10 +36,22 @@ export default defineComponent({
   },
   methods: {
     cmptTemplateColumns() {
+      // console.group('cmptTemplateColumns');
+      // console.debug(`this.grid.minColumns :>> `, this.grid.minColumns);
+      // console.debug(`this.grid.maxColumns :>> `, this.grid.maxColumns);
+      // console.debug(`this.grid.columns :>> `, this.grid.columns);
+      // console.debug(
+      //   `this.grid.templateColumns :>> `,
+      //   this.grid.templateColumns
+      // );
+      // console.groupEnd();
+
       if (!this.grid.templateColumns) {
-        return this.grid.maxWidth === Infinity
-          ? `repeat(${this.grid.columns},minmax(0,1fr))`
-          : `repeat(${this.grid.columns},minmax(${this.grid.minWidth}px,${this.grid.maxWidth}px))`;
+        const columns = this.grid.minColumns || this.grid.maxColumns;
+        const min = `${this.grid.minWidth}px`;
+        const max =
+          this.grid.maxWidth === Infinity ? '1fr' : `${this.grid.maxWidth}px`;
+        return `repeat(${columns},minmax(${min},${max}))`;
       }
 
       return this.grid.templateColumns;
@@ -56,11 +68,11 @@ export default defineComponent({
       }),
     };
   },
-  // created() {},
   mounted() {
     setTimeout(() => {
       dispose = this.grid.connect(this.$refs.rootRef as HTMLElement);
     });
+    // dispose = this.grid.connect(this.$refs.rootRef as HTMLElement);
   },
   destroyed() {
     dispose();
