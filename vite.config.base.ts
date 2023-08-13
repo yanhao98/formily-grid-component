@@ -1,49 +1,47 @@
-import { PluginOptions as DtsOptions } from 'vite-plugin-dts';
-import { BuildOptions } from 'vite';
-import path from 'path';
+import path from "path";
 
-const srcPath = path.resolve(__dirname, './src');
+const srcPath = path.resolve(__dirname, "./src");
 
 // https://github.com/qmhc/vite-plugin-dts/blob/HEAD/README.zh-CN.md
-export const dtsOptions: DtsOptions = {
+export const dtsOptions: import("vite-plugin-dts").PluginOptions = {
   root: srcPath,
-  include: ['./index.ts'],
-  tsconfigPath: path.resolve(srcPath, '../tsconfig.json'),
+  include: ["./index.ts"],
+  tsconfigPath: path.resolve(srcPath, "../tsconfig.json"),
   entryRoot: srcPath,
   compilerOptions: {
-    baseUrl: path.resolve(srcPath, '../'),
+    baseUrl: path.resolve(srcPath, "../"),
     paths: {},
   },
   // insertTypesEntry: true,
   // rollupTypes: true,
   staticImport: true,
-  logLevel: 'info',
+  logLevel: "info",
   beforeWriteFile(filePath, content) {
     return {
       filePath,
       content: content
-        .replaceAll('vue2.7', 'vue')
-        .replaceAll('vue2', 'vue')
-        .replaceAll('vue3', 'vue')
-        .replaceAll('../node_modules/', ''),
+        .replaceAll("vue2.7", "vue")
+        .replaceAll("vue2", "vue")
+        .replaceAll("vue3", "vue")
+        .replaceAll("../node_modules/", ""),
     };
   },
 };
 
-export const buildOptions: BuildOptions = {
+export const buildOptions: import("vite").BuildOptions = {
   lib: {
     entry: `${srcPath}/index.ts`,
-    name: 'v-component',
-    formats: ['es', 'cjs'],
-    fileName: 'index',
+    name: "v-component",
+    formats: ["es", "cjs"],
+    fileName: "index",
     // fileName: (format) => `index.${format}.js`,
   },
   rollupOptions: {
-    external: ['vue-demi', 'vue', '@formily/grid', '@formily/reactive-vue'],
+    external: ["vue-demi", "vue", "@formily/grid", "@formily/reactive-vue"],
     output: {
       globals: {
-        'vue': 'Vue',
-        'vue-demi': 'VueDemi',
+        vue: "Vue",
+        "vue-demi": "VueDemi",
       },
     },
   },

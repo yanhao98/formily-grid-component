@@ -13,13 +13,15 @@
 </template>
 
 <script lang="ts">
-import { Grid } from '@formily/grid';
-import { defineComponent } from 'vue-demi';
+import { Grid } from "@formily/grid";
+import { defineComponent } from "vue-demi";
 
 let dispose = () => {};
 
+// let cmptTemplateColumnsCount = 0;
+
 export default defineComponent({
-  name: 'FormilyGridComponent',
+  name: "FormilyGridComponent",
   props: {
     columns: {
       type: Number,
@@ -36,21 +38,19 @@ export default defineComponent({
   },
   methods: {
     cmptTemplateColumns() {
-      // console.group('cmptTemplateColumns');
+      // console.group("cmptTemplateColumns");
       // console.debug(`this.grid.minColumns :>> `, this.grid.minColumns);
       // console.debug(`this.grid.maxColumns :>> `, this.grid.maxColumns);
       // console.debug(`this.grid.columns :>> `, this.grid.columns);
-      // console.debug(
-      //   `this.grid.templateColumns :>> `,
-      //   this.grid.templateColumns
-      // );
+      // console.debug(`this.grid.width :>> `, this.grid.width);
+      // console.debug(`this.grid.templateColumns :>> `, this.grid.templateColumns);
+      // console.debug(`++cmptTemplateColumnsCount :>> `, ++cmptTemplateColumnsCount);
       // console.groupEnd();
 
       if (!this.grid.templateColumns) {
         const columns = this.grid.minColumns || this.grid.maxColumns;
         const min = `${this.grid.minWidth}px`;
-        const max =
-          this.grid.maxWidth === Infinity ? '1fr' : `${this.grid.maxWidth}px`;
+        const max = this.grid.maxWidth === Infinity ? "1fr" : `${this.grid.maxWidth}px`;
         return `repeat(${columns},minmax(${min},${max}))`;
       }
 
@@ -69,10 +69,7 @@ export default defineComponent({
     };
   },
   mounted() {
-    setTimeout(() => {
-      dispose = this.grid.connect(this.$refs.rootRef as HTMLElement);
-    });
-    // dispose = this.grid.connect(this.$refs.rootRef as HTMLElement);
+    dispose = this.grid.connect(this.$refs.rootRef as HTMLElement);
   },
   destroyed() {
     dispose();

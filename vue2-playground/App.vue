@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <button @click="show = !show">{{ { show } }}</button>
+    <!-- <button @click="show = !show">{{ { show } }}</button> -->
 
-    <FormilyGridComponent :columns="2" v-show="show">
+    <FormilyGridComponent :columns="2">
       <div>1</div>
       <div>2</div>
       <div>3</div>
@@ -18,23 +18,25 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api';
-import { FormilyGridComponent } from '../src';
+import { defineComponent } from "@vue/composition-api";
+import { FormilyGridComponent } from "../src";
+
+let fnCount = 0;
 
 export default defineComponent({
-  name: 'App',
+  name: "App",
   components: {
     FormilyGridComponent,
   },
   data() {
     return {
-      show: false,
+      show: true,
     };
   },
   methods: {
     fn() {
-      console.debug('fn');
-      return 'fn';
+      console.debug(`++fnCount :>> `, ++fnCount);
+      return "fnRtn";
     },
   },
 });
