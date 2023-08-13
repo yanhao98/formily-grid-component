@@ -1,7 +1,7 @@
 {
   "name": "formily-grid-component",
   "packageManager": "pnpm@8.6.12",
-  "version": "1.0.0-beta.6",
+  "version": "1.0.0-beta.7",
   "description": "",
   "main": "./dist/cur/index.js",
   "module": "./dist/cur/index.mjs",
@@ -21,7 +21,7 @@
     "dev:2.7": "vue-demi-switch 2.7 vue2.7 && pnpm --filter vue2.7-playground dev",
     "dev:3": "vue-demi-switch 3 vue3 && pnpm --filter vue3-playground dev",
     "ri": "node ./scripts/re-install.mjs",
-    "release:ci": "esno scripts/release.ts"
+    "publish:ci": "esno scripts/publish.ts"
   },
   "repository": {
     "type": "git",
