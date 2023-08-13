@@ -5,7 +5,7 @@ const srcPath = path.resolve(__dirname, "./src");
 // https://github.com/qmhc/vite-plugin-dts/blob/HEAD/README.zh-CN.md
 export const dtsOptions: import("vite-plugin-dts").PluginOptions = {
   root: path.resolve(srcPath, "../"),
-  include: ["./src/index.ts"],
+  include: ["./src/**"],
   tsconfigPath: path.resolve(srcPath, "../tsconfig.json"),
   entryRoot: srcPath,
   compilerOptions: {
