@@ -1,7 +1,7 @@
 {
   "name": "formily-grid-component",
   "packageManager": "pnpm@8.6.12",
-  "version": "1.0.0-beta.8",
+  "version": "1.0.0-beta.9",
   "description": "",
   "main": "./dist/cur/index.js",
   "module": "./dist/cur/index.mjs",
